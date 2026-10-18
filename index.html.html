@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sgplastic-tools</title>
+<meta name="theme-color" content="#3f51b5">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast" class="toast hidden"></div>
+<!-- LOGIN -->
+<section id="loginView" class="view">
+<h1>🔧 sgplastic-tools</h1>
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<p id="loginError" class="error"></p>
+<button id="loginBtn" class="block">Sign in</button>
+</section>
+<!-- APP -->
+<section id="appView" class="view hidden">
+<header>
+<h2>sgplastic-tools</h2>
+<button id="logoutBtn" class="small">Logout</button>
+</header>
+<main>
+<div id="tab-tools" class="tab">
+<input id="search" type="search" placeholder="Search name or size (e.g. spanner 17mm)">
+<div class="chips">
+<button class="chip active" data-filter="all">All</button>
+<button class="chip" data-filter="in">Available</button>
+<button class="chip" data-filter="out">Borrowed</button>
+</div>
+<div id="toolList"></div>
+</div>
+<div id="tab-scan" class="tab hidden">
+<p>Point the camera at a tool's QR label.</p>
+<div id="reader"></div>
+<p id="scanMsg" class="error"></p>
+</div>
+<div id="tab-add" class="tab hidden">
+<h3>Add a tool</h3>
+<input id="addName" placeholder="Tool name">
+<input id="addSize" placeholder="Size (e.g. 17mm, 1/2 inch)">
+<input id="addCategory" placeholder="Category (optional)">
+<input id="addPhoto" type="file" accept="image/*">
+<img id="preview" class="big hidden" alt="preview">
+<p id="addMsg" class="error"></p>
+<button id="saveToolBtn" class="block">Save tool</button>
+</div>
+<div id="tab-admin" class="tab hidden">
+<div id="stats" class="stats"></div>
+<h3>Currently out</h3>
+<div id="outList"></div>
+<h3>Movement log</h3>
+<div id="logList"></div>
+</div>
+</main>
+<nav>
+<button data-tab="tools" class="active">🔧<br>Tools</button>
+<button data-tab="scan">📷<br>Scan</button>
+<button data-tab="add">➕<br>Add</button>
+<button data-tab="admin" class="hidden">📊<br>Admin</button>
+</nav>
+</section>
+<!-- TOOL DETAILS -->
+<div id="modal" class="modal hidden">
+<div class="card" id="modalBody"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
+ 
